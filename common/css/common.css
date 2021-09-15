@@ -1,0 +1,222 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul,li,ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+input,button{outline-style: none;}
+table { border-collapse:collapse; border-spacing:0; }
+html,body{height: 100%;}
+body{font-size: 16px !important;font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;color:#000 !important;}
+input{width:100%;background:transparent;border:none;color:#000;-webkit-appearance: none; /*去除系统默认的样式*/-webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* 点击高亮的颜色*/}
+input[type=checkbox]{width:auto;}
+input[type=radio]{width:auto;}
+input::placeholder{color:#959595;}
+textarea{width:100%;border:1px solid #dcdee2;border-radius: 2px; -webkit-appearance: none;}
+textarea:focus{outline: none;border:1px solid #57a3f3;}
+img{max-width: 100%;}
+i{margin-right:2px ;}
+
+/* 隐藏高德地图标识 */
+.amap-logo,.amap-copyright{display: none !important;}
+
+/* h5 清除样式 */
+figure{margin:0; padding:0;}
+
+/* 隐藏百度地图标识 */
+.anchorBL{display: none;}
+
+/* 
+1. ::-webkit-scrollbar 滚动条整体部分
+
+2. ::-webkit-scrollbar-thumb 滚动条里面的小方块，能向上向下移动（或向左向右移动）
+
+3. ::-webkit-scrollbar-track 滚动条的轨道（里面装有Thumb）
+
+4. ::-webkit-scrollbar-button 滚动条的轨道的两端按钮，由于通过点击微调小方块的位置。
+
+5. ::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分
+
+6. ::-webkit-scrollbar-corner 边角，即垂直滚动条和水平滚动条相交的地方
+
+7. ::-webkit-resizer 两个滚动条的交汇处上用于拖动调整元素大小的小控件
+*/
+/* 滚动条样式设置 */
+::-webkit-scrollbar {
+  width:0px;
+  height:0px;
+}
+/* ::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #1E90FF;
+}  */
+
+
+/* 页面背景色 */
+.page-bg{background-color: #f1f1f1;}
+
+select {width: 100%;/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/border: solid 1px #000;border: none;/*很关键：将默认的select选择框样式清除*/appearance:none;-moz-appearance:none;-webkit-appearance:none;background:none;/*加padding防止文字覆盖*/padding-right: 14px;}
+select:focus {outline: none;webkit-tap-highlight-color: rgba(0,0,0,0);}
+
+input[type="checkbox"],input[type=radio]{width: 20px;height: 20px;position: relative;display: inline-block;vertical-align: middle;}
+
+input[type="checkbox"]::before,input[type=radio]::before{content: "";box-sizing: border-box; position: absolute;top: 0;left: 0;background: #fff;width: 100%;height: 100%;border:1px solid #ddd;border-radius: 50%;}
+input[type="checkbox"]::before{border-radius: 2px;}
+input[type="checkbox"]:checked::before,input[type=radio]:checked::before{border: 1px solid #108ee9;}
+
+input[type=radio]:checked::after{content: "";translate: all 1s;position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);width: 65%;height: 65%;background: #108ee9;border-radius: 50%;}
+input[type="checkbox"]:checked::after{content: "";position: absolute;left: 50%;top: 50%;width: .2rem;height: .1rem;border-top: 3px solid #108ee9;border-right: 3px solid #108ee9;transform:translate(-50%,-65%) rotate(135deg) scale(.5);}
+
+
+/* 元素禁止事件 */
+.ban{pointer-events: none;}
+.ban-child > *{pointer-events: none;}
+
+/* button button设置默认样式*/
+.el-button{padding:12px 20px;line-height:1;font-weight: 500;font-size: 14px;box-sizing: border-box;background: #fff;outline: none;border:1px solid #dcdfe6;border-radius: 4px;white-space: nowrap;cursor: pointer;transition: .1s;}
+.el-button:hover {color: #409eff;border-color: #c6e2ff;background-color: #ecf5ff;}
+.el-button-primary {color: #fff;background-color: #409eff;border-color: #409eff;}
+.el-button-primary:hover{background: #66b1ff;border-color: #66b1ff;color: #fff;}
+.el-button-success {color: #fff;background-color: #39C49E;border-color: #39C49E;}
+.el-button-success:hover {background: #5adab8;border-color: #5adab8;color: #fff;}
+.el-button-warning {color: #fff;background-color: #e6a23c;border-color: #e6a23c;}
+.el-button-warning:hover {background: #ebb563;border-color: #ebb563;color: #fff;}
+.el-button-danger {color: #fff;background-color: #f56c6c;border-color: #f56c6c;}
+.el-button-danger:hover {background: #f78989;border-color: #f78989; color: #fff;}
+.el-disabled {pointer-events: none;border:none; cursor: default;opacity: 0.6;background: rgba(0, 0, 0, 0.2);}
+.el-disabled:hover{background: rgba(0, 0, 0, 0.2);border:none;}
+
+/* flex布局 */
+.flex{display: flex;}
+.flex-between{display: flex;justify-content: space-between;}
+.flex-align{display: flex;align-items: center;}
+.j-flex{display: flex;justify-content: space-between;align-items: center;}
+.j-flex-col{display: flex;flex-direction: column;}
+.j-flex-row{ display: flex;flex-direction: row;flex-wrap: wrap;}
+.flex-adapt{flex:1;}
+
+/* 虚线 */
+.j-line{width: 100%;height:1px;background-image: linear-gradient(to right,#ccc 0%,#ccc 50%,transparent 50%);background-size: 15px 1px;background-repeat: repeat-x;}
+
+/* flex布局下 失效 文字超出省略号 单行  和 多行 webkit-line-clamp设置行数*/
+.text-wrap{text-overflow: ellipsis;white-space: normal;word-break: break-all;}
+.text-overflow{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+/*flex布局下也能生效 文字超出省略号   */
+.text-overflowMut{display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;}
+
+/* 占满当前父元素盒子 */
+.j-full-curbox{position:absolute;top:0;left:0;right:0;bottom:0;margin:0;overflow:auto;}
+.j-full-fixed{position:fixed;top:0;left:0;right:0;bottom:0;margin:0;overflow:auto;}
+/* 居中 */
+.j-full-center{position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);}
+
+/* margin */
+.m-5{margin:.05rem;}
+.mb-5{margin-bottom:.05rem;}
+.mt-5{margin-top: .05rem;}
+.mr-5{margin-right:.05rem;}
+.ml-5{margin-left: .05rem;}
+
+.m-10{margin:.1rem;}
+.mb-10{margin-bottom:.1rem;}
+.mt-10{margin-top: .1rem;}
+.mr-10{margin-right:.1rem;}
+.ml-10{margin-left: .1rem;}
+
+.m-15{margin:.15rem;}
+.mb-15{margin-bottom:.15rem;}
+.mt-15{margin-top: .15rem;}
+.mr-15{margin-right:.15rem;}
+.ml-15{margin-left: .15rem;}
+
+.m-20{margin:.2rem;}
+.mb-20{margin-bottom:.2rem;}
+.mt-20{margin-top: .2rem;}
+.mr-20{margin-right:.2rem;}
+.ml-20{margin-left: .2rem;}
+
+.m-30{margin:.3rem;}
+.mb-30{margin-bottom:.3rem;}
+.mt-30{margin-top: .3rem;}
+.mr-30{margin-right:.3rem;}
+.ml-30{margin-left: .3rem;}
+
+/* padding */
+.p-5{padding:.05rem;}
+.pb-5{padding-bottom:.05rem;}
+.pt-5{padding-top: .05rem;}
+.pr-5{padding-right:.05rem;}
+.pl-5{padding-left: .05rem;}
+
+.p-10{padding:.1rem;}
+.pb-10{padding-bottom:.1rem;}
+.pt-10{padding-top: .1rem;}
+.pr-10{padding-right:.1rem;}
+.pl-10{padding-left: .1rem;}
+
+.p-15{padding:.15rem;}
+.pb-15{padding-bottom:.15rem;}
+.pt-15{padding-top: .15rem;}
+.pr-15{padding-right:.15rem;}
+.pl-15{padding-left: .15rem;}
+
+.p-20{padding:.2rem;}
+.pb-20{padding-bottom:.2rem;}
+.pt-20{padding-top: .2rem;}
+.pr-20{padding-right:.2rem;}
+.pl-20{padding-left: .2rem;}
+
+.p-30{padding:.3rem;}
+.pb-30{padding-bottom:.3rem;}
+.pt-30{padding-top: .3rem;}
+.pr-30{padding-right:.3rem;}
+.pl-30{padding-left: .3rem;}
+
+/* 边框 */
+.bd{border: 1px solid rgba(0,0,0,.04);}
+.bd-b{border-bottom: 1px solid rgba(0,0,0,.04);}
+.bd-r{border-right: 1px solid rgba(0,0,0,.04);}
+.bd-t{border-top: 1px solid rgba(0,0,0,.04);}
+.bd-l{border-left: 1px solid rgba(0,0,0,.04);}
+.bd-b-af::after{content: "";position: absolute;bottom: 0;left: .1rem;width:calc(100% - (.2rem));border-bottom: 1px solid rgba(221,221,221,.3);}
+
+
+/* 字体 */
+.font12 { font-size: .12rem;}
+.font14 { font-size: .14rem;}
+.font16 { font-size: .16rem;}
+.font18 { font-size: .18rem;}
+.font20 { font-size: .20rem;}
+.font22 { font-size: .22rem;}
+.font24 { font-size: .24rem;}
+.font26 { font-size: .26rem;}
+.font28 { font-size: .28rem;}
+.font30 { font-size: .30rem;}
+
+/* 右箭头 */
+.arrow{display: inline-block; width: .1rem;height: .1rem;border-top: 2px solid #999;border-right: 2px solid #999;transform:rotate(45deg) scale(.5);}
+
+.triangle{display: inline-block;width: 0;height: 0;border: .1rem solid transparent;border-bottom: 0;border-top-color: #999;transform: scale(.5);}
+
+/* 加载动画css 配合config.js中 loading使用*/
+.l-box .l-circle {width: 60px;height: 60px;position: absolute;left: 50%;top: 50%;transform: translate(-30px,-30px);}
+.l-circle div {content: '';position: absolute;width: 16px;height: 16px;background: #39C49E;top: 10px;left: 10px;transform-origin: 20px 20px;border-radius: 8px;animation: spin-a 2s infinite cubic-bezier(0.5, 0, 0.5, 1);}
+.l-circle .c2 {top: 10px;left: auto;right: 10px;transform-origin: -4px 20px;animation: spin-b 2s infinite cubic-bezier(0.5, 0, 0.5, 1);}
+.l-circle .c3 {top: auto;left: auto;right: 10px;bottom: 10px;transform-origin: -4px -4px;animation: spin-c 2s infinite cubic-bezier(0.5, 0, 0.5, 1);}
+.l-circle .c4 {top: auto;bottom: 10px;transform-origin: 20px -4px;animation: spin-d 2s infinite cubic-bezier(0.5, 0, 0.5, 1);}
+.l-box>span {width: 100px;height: 30px;position: absolute;left: 50%;margin-left: -50px;top: 50%;margin-top: 30px;color: #39C49E;font-size: 12px;text-align: center;}
+@keyframes spin-a {0% {transform: rotate(90deg);}50% {transform: rotate(180deg);}75% {transform: rotate(270deg);}100% {transform: rotate(360deg);}}
+@keyframes spin-b {0% {transform: rotate(90deg);}25% {transform: rotate(90deg);}25% {transform: rotate(180deg);}75% {transform: rotate(270deg);}100% {transform: rotate(360deg);}}
+@keyframes spin-c {0% {transform: rotate(90deg);}25% {transform: rotate(90deg);}50% {transform: rotate(180deg);}50% {transform: rotate(270deg);}100% {transform: rotate(360deg);}}
+@keyframes spin-d {0% {transform: rotate(90deg);}25% {transform: rotate(90deg);}50% {transform: rotate(180deg);}75% {transform: rotate(270deg);}75% {transform: rotate(360deg);}100% {transform: rotate(360deg);}}

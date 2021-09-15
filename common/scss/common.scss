@@ -1,0 +1,105 @@
+// 本项目 基本色 
+.colfff{color: #fff;}
+.col333{color: #333;}
+.col111{color: #111F37;}
+.colA1A{color: #A1A1A1;}
+.col5c5{color: #5c5f65;}
+.cola1a{color: #a1a1a1;}
+.col41c{color: #41c39e;}
+.colecf{color: #ecf9f5;}
+.col778{color: #778bd0;}
+.cole7e{color: #e7ebf6;}
+.colfdc{color: #fdc453;}
+.colfbf{color: #fbf0de;}
+.colec6{color: #ec650f;}
+.col306{color: #306A58;}
+.col475{color: #475A82;}
+.col6d5{color: #6D542E;}
+.colf33{color: #f33;}
+
+.bgfff{background-color: #fff;}
+.bg41c{background-color: #41c39e;}
+
+.el-button-sub {color: #fff;background-color: #41c39e;border-color: #41c39e;}
+.el-button-sub:hover {background: #57c8a8;border-color: #57c8a8; color: #fff;}
+.el-button-dark {color: #fff;background-color: #788DCE;border-color: #788DCE;}
+.el-button-dark:hover {background: #a6bcfc;border-color: #a6bcfc; color: #fff;}
+.el-button-yellow {color: #fff;background-color: #FCC35D;border-color: #FCC35D;}
+.el-button-yellow:hover {background: #ffd791;border-color: #ffd791; color: #fff;}
+.el-button-cyan {color: #fff;background-color: #ECF9F5;border-color: #ECF9F5;}
+.el-button-cyan:hover {background: #d5fcf0;border-color: #d5fcf0; color: #fff;}
+
+// 公共评分样式
+.scoreIcon{
+  display: inline-block;
+  width: .35rem;
+  height: .16rem;
+  line-height: .16rem;
+  font-size: .16rem;
+  text-align: center;
+  color: #fff;
+  background: #778BD0;
+  //border-radius上左 上右 下右 下左 / 左上 右上  右下 左下
+  border-radius: 40% 60% 40% 60% / 100% 0% 100% 0%  ;
+}
+
+// 列表样式
+.list_{
+  position: relative;
+  background: #fff;
+  padding:.1rem .2rem;
+  &::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: .2rem;
+    width:calc(100% - (.2rem));
+    border-bottom: 1px solid rgba(221,221,221,.3);
+  }
+  &:first-child::after{
+    border: none;
+  }
+}
+
+/*最外层盒子  每列 自己结合flex布局使用 */
+.box{
+  background-color: #fff;
+  border-radius: .05rem;
+  margin: .1rem 0;
+  padding: .15rem  .1rem;
+  /* 盒子标题 */
+  .box-title{
+    margin-bottom:.07rem;
+    font-weight: bold;
+  }
+  /* 每列  用于*/
+  .menu{
+    padding:.1rem;
+    /* 每列 title */
+    .menu-title{
+      width: .8rem;
+    }
+    /* 每列内容 */
+    .menu-content{
+      flex:1;
+      color:#999;
+    }
+    &:last-child{
+      border:none;
+    }
+  }
+
+  // 用于每列信息展示   左边信息名称   右边信息
+  .column{
+    display: flex;
+    justify-content: space-between;
+    padding:.1rem;
+    .left{
+      color:#A1A1A1;
+    }
+    .right{
+      color: #333;
+    }
+    
+  }
+}
