@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import config from "@common/js/config.js";
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
 import {get,post,postmult} from "@common/js/request.js";
 import api from "@common/js/api.js";
 import validator from "@common/js/validator.js";
@@ -45,6 +47,7 @@ Vue.prototype.$replace = (e,params)=>{
   app.$router.replace({path:url,query:params?params:''});
 }
 
+Vue.use(ViewUI);
 Vue.use(component);
 
 var app = new Vue({

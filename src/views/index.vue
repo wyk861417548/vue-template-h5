@@ -24,7 +24,6 @@ export default {
 
 
   mounted(){
-    this.$refs.da.show =true;
   },
 
   methods: {
