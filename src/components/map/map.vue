@@ -8,7 +8,6 @@ export default {
   props:['name'],
   data () {
     return {
-      namexx:'jdoiawjd(dawdwa)',
       map:null,
     };
   },

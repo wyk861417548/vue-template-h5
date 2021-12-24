@@ -75,6 +75,13 @@ export default {
 			let type  = rule[i].datatype;
 			
 			let value = formdata[i];
+
+       // 如果没填信息
+			if(this[type] && !this.Require.test(value) || "undefined" == typeof value){
+				F.tip(rule[i].msg ? rule[i].msg : "信息有误，请检查填写信息。")
+				check = false;
+				break;
+			}
 			
 			// 填了但不满足正则
 			if(this[type] && type != "IdCard"){
@@ -89,7 +96,8 @@ export default {
 			}
 			
 			if(!check){
-        F.tip(rule[i].msg ? rule[i].msg : "信息有误，请检查填写信息。")
+        console.log("check",rule[i]);
+        F.tip(rule[i].errMsg ? rule[i].errMsg : "信息有误，请检查填写信息。")
 				break;
 			}
 		}

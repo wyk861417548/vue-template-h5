@@ -1,9 +1,5 @@
 <template>
-  <!-- j-full-curbox 当前元素占满全屏  j-flex-col flex垂直布局 -->
-
   <div id="qrCode" ref="qrCodeDiv" ></div>
-
-
 </template>
 
 <script>

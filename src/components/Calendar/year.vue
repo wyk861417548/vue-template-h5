@@ -60,7 +60,7 @@
         this.currentYear -=10;
       },
 
-      next(name){
+      next(){
         this.currentYear+=10;
       },
 
@@ -92,7 +92,7 @@
         background: #029688;
         .arrow-year{
           padding: .05rem;
-          color: #5a5a5a;
+          color: #ddd;
         }
         .date{
           font-size: .24rem;

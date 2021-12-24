@@ -1,43 +1,132 @@
 <template>
-  <div class="swiper">
-    <ul>
-      <li class="swiper-slide">1</li>
-      <li class="swiper-slide">2</li>
-      <li class="swiper-slide">3</li>
-    </ul>
-  </div>
+  <swiper
+    class="swiper-container"
+    :options="swiperOption"
+    ref="mySwiper"
+    @click-slide="handleClickSlide"
+  >
+    <slot>
+      <swiper-slide>
+        <div style="height: 1rem">I'm Slide 1</div>
+      </swiper-slide>
+      <swiper-slide>
+        <div style="height: 1rem">I'm Slide 2</div>
+      </swiper-slide>
+      <swiper-slide>
+        <div style="height: 1rem">I'm Slide 3</div>
+      </swiper-slide>
+    </slot>
+    <div class="swiper-pagination" slot="pagination"></div>
+  </swiper>
 </template>
 
 <script>
+// 引入插件
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import "swiper/dist/css/swiper.css";
+
 export default {
-  data () {
-    return {};
+  props: ["option"],
+  components: {
+    swiper,
+    swiperSlide,
+  },
+  data() {
+    return {
+      swiperOption: {
+        // loop: true,
+
+        // 自动播放
+        // autoplay: {
+        //   delay: 3000,
+        //   stopOnLastSlide: false,
+        //   disableOnInteraction: false
+        // },
+
+        //初始化显示
+        initialSlide: 1,
+
+        // 设定为true时，active slide会居中，而不是默认状态下的居左。
+        centeredSlides: true,
+
+        // 设置slider容器能够同时显示的slides数量
+        slidesPerView: 1,
+
+        // 显示分页小圆点
+        // pagination: {
+        //   el: ".swiper-pagination",
+        //   clickable: true //允许分页点击跳转
+        // },
+
+        // 设置点击箭头
+        // navigation: {
+        //   nextEl: ".swiper-button-next",
+        //   prevEl: ".swiper-button-prev"
+        // },
+        on: {
+          slideChangeTransitionEnd: ()=> { //切换结束时，告诉我现在是第几个slide
+            if(!this.swiper)return;
+            this.$emit("change",this.swiper.activeIndex)
+          },
+        },
+      },
+    };
+  },
+  created() {
+    this.merge(this.option);
   },
 
-  created(){},
-
-
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.swiper;
+    },
+  },
   methods: {
-    get(){}
-  }
-}
+    handleClickSlide(index) {
+      console.log("clie", index);
+    },
+
+    merge(option) {
+      if (option) {
+        for (const key in option) {
+          this.swiperOption[key] = option[key];
+        }
+      }
+      return this.swiperOption;
+    },
+  },
+
+  mounted() {},
+  watch: {
+    option: {
+      handler(newVal) {
+        console.log("newVal", newVal);
+        for (const key in newVal) {
+          this.swiperOption[key] = newVal[key];
+        }
+        console.log("this.swoper", this.swiperOption.initialSlide);
+      },
+      deep: true,
+    },
+  },
+};
 </script>
-<style lang='scss' scoped>
-  .swiper{
-    width: 300px;
-    height: 200px;
-    background: #108ee9;
-    margin: 50px auto;
-    // overflow: hidden;
-    .swiper-slide{
-      width: 100%;
-      height: 100%;
-      background: #ff6700;
-      float: left;
-    }
-    .swiper-slide-active{
 
-    }
-  }
-
+<style>
+.swiper-slide {
+height: auto;
+color: #000;
+/*font-size: 16px;*/
+font-size: 18pt;
+transition: all 0.3s;
+/* transform: scale(0.5) */
+}
+.swiper-slide-active {
+/* z-index: 999 !important; */
+/* transform: scale(1) */
+}
+/* 小圆球 */
+.swiper-pagination-bullet-active {
+background: #24f1b6 !important;
+}
 </style>

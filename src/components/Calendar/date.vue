@@ -34,14 +34,14 @@
     <!-- 时间展示区域 -->
     <div  class="calendar-date" v-show="defalutShow">
       <div class="calendar-date-column">
-        <p v-for='item in hh' :key="'h'+item" :class="{active:item == time[0]}" @click="$set(time,0,item)">
-          {{item}}
+        <p v-for='item in hh' :key="'h'+item" :class="{active:item-1 == time[0]}" @click="$set(time,0,item-1)">
+          {{currentTime(item-1)}}
         </p>
       </div>
 
       <div class="calendar-date-column">
         <p v-for='item in min' :key="'min'+item" :class="{active:item-1 == time[1]}" @click="$set(time,1,item-1)">
-          {{item-1}}
+          {{currentTime(item-1)}}
         </p>
       </div>
     </div>
@@ -115,7 +115,13 @@
 
       nextDays(){
         return 42 - this.currentDays - this.preDays;
-      }
+      },
+
+      currentTime(){
+        return (time)=>{
+          return time<10?'0'+time:time
+        }
+      },
     },
 		
 		methods:{

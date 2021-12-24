@@ -1,65 +1,56 @@
 <template>
-	<div class="calendar" v-show="show">
-    <div class="calendar-box">
-      <!-- 头部年月日星期显示区域 -->
-      <div class="calendar-header">
-        <div class="year">{{currentYear}}年</div>
-        <div class="date">{{currentMonthChinese}}</div>
+  <div>
+    <!-- 头部年月日星期显示区域 -->
+    <div class="calendar-header">
+      <div class="year">{{currentYear}}年</div>
+      <div class="date">{{currentMonthChinese}}</div>
+    </div>
+
+    <!-- 日历日期部分 -->
+    <div v-show="!defalutShow">
+        <!-- 左右切换月份 -->
+      <div class="calendar-title">
+        <!-- <div class="arrow arrow-year iconfont icon-shuangjiantouxia" @click="prev('year')" style="transform:rotate(-135deg) scale(.5);"></div> -->
+        <div class="arrow-year iconfont icon-shuangjiantouxia mr-10" @click="prev('year')" ></div>
+        <div class="arrow" @click="prev" style="transform:rotate(-135deg) scale(.5);"></div>
+        <div class="date">{{currentYear}}年{{currentMonth + 1}}月</div>
+        <div class="arrow" @click="next" style="transform:rotate(45deg) scale(.5);"></div>
+        <div class="arrow-year iconfont icon-arrow-right-double ml-10" @click="next('year')"></div>
       </div>
 
-      <!-- 日历日期部分 -->
-      <div v-show="!defalutShow">
-         <!-- 左右切换月份 -->
-        <div class="calendar-title">
-          <!-- <div class="arrow arrow-year iconfont icon-shuangjiantouxia" @click="prev('year')" style="transform:rotate(-135deg) scale(.5);"></div> -->
-          <div class="arrow-year iconfont icon-shuangjiantouxia mr-10" @click="prev('year')" ></div>
-          <div class="arrow" @click="prev" style="transform:rotate(-135deg) scale(.5);"></div>
-          <div class="date">{{currentYear}}年{{currentMonth + 1}}月</div>
-          <div class="arrow" @click="next" style="transform:rotate(45deg) scale(.5);"></div>
-          <div class="arrow-year iconfont icon-arrow-right-double ml-10" @click="next('year')"></div>
+      <!-- 日期展示区域 -->
+      <div class="calendar-content">
+        <div class="row title">
+          <span v-for='(item,index) in title' :key='index'>{{item}}</span>
         </div>
-
-        <!-- 日期展示区域 -->
-        <div class="calendar-content">
-          <div class="row title">
-            <span v-for='(item,index) in title' :key='index'>{{item}}</span>
-          </div>
-          <div class="row content">
-            <span class="gray" v-for='item in preDays' :key="'prev'+item"></span>
-            <span :class="{active:currentIndex == item}" v-for='item in currentDays' :key="'cur'+item" @click="change(item)">{{item}}</span>
-            <span class="gray" v-for='item in nextDays' :key="'next'+item"></span>
-          </div>
+        <div class="row content">
+          <span class="gray" v-for='item in preDays' :key="'prev'+item"></span>
+          <span :class="{active:currentIndex == item}" v-for='item in currentDays' :key="'cur'+item" @click="change(item)">{{item}}</span>
+          <span class="gray" v-for='item in nextDays' :key="'next'+item"></span>
         </div>
       </div>
+    </div>
 
-      <!-- 时间展示区域 -->
-      <div  class="calendar-date" v-show="defalutShow">
-        <div class="calendar-date-column">
-          <p v-for='item in hh' :key="'h'+item" :class="{active:item == time[0]}" @click="$set(time,0,item)">
-            {{item}}
-          </p>
-        </div>
-
-        <div class="calendar-date-column">
-          <p v-for='item in min' :key="'min'+item" :class="{active:item-1 == time[1]}" @click="$set(time,1,item-1)">
-            {{item-1}}
-          </p>
-        </div>
-      </div>
-
-      <!-- 底部 按钮区域 -->
-      <div class="calendar-footer">
-        <p v-if="type == 'datetime'">
-          <span class="pt-10 pb-10" v-show="defalutShow" @click="defalutShow = false">选择日期</span>
-          <span class="pt-10 pb-10" v-show="!defalutShow" @click="defalutShow = true">选择时间</span>
-        </p>
-        <p></p>
-        <p class="action">
-          <span @click="show = false">取消</span>
-          <span @click="confirm">确定</span>
+    <!-- 时间展示区域 -->
+    <div  class="calendar-date" v-show="defalutShow">
+      <div class="calendar-date-column">
+        <p v-for='item in noon' :key="'h'+item.name" :class="{active:item.name == time}" @click="time = item.name">
+          {{item.name}}
         </p>
       </div>
-     
+    </div>
+
+    <!-- 底部 按钮区域 -->
+    <div class="calendar-footer">
+      <p v-if="type == 'datenone'">
+        <span class="pt-10 pb-10" v-show="defalutShow" @click="defalutShow = false">选择日期</span>
+        <span class="pt-10 pb-10" v-show="!defalutShow" @click="defalutShow = true">选择时间</span>
+      </p>
+      <p></p>
+      <p class="action">
+        <span @click="cancel">取消</span>
+        <span @click="confirm">确定</span>
+      </p>
     </div>
   </div>
 </template>
@@ -70,9 +61,6 @@
     props:['type'],
 		data() {
 			return {
-				// 是否显示日期组件
-				show:true,
-
         // 当前选择时期还是时间 
         defalutShow:false,
 
@@ -89,12 +77,9 @@
         currentDay:new Date().getDate(),
 
 
-        hh:24,
+        noon:[{name:"上午"},{name:"下午"}],
 
-        min:60,
-
-        time:[8,0]
-
+        time:"上午"
 			};
 		},
 
@@ -121,7 +106,7 @@
 
       nextDays(){
         return 42 - this.currentDays - this.preDays;
-      }
+      },
     },
 		
 		methods:{
@@ -171,11 +156,12 @@
         this.currentDay = item;
       },
 
+      cancel(){
+        this.$emit("cancel")
+      },
+
       // 确定选中日期  
       confirm(){
-        let time = '';
-        let selTime = this.time;
-
         let month = this.currentMonth+1;
 
         if(this.currentMonth+1 < 10){
@@ -185,17 +171,11 @@
     
         let date = [this.currentYear,month,this.currentDay].join('-');
 
-        if(this.type == 'datetime'){
-          let hh = selTime[0]<10?'0'+selTime[0]:selTime[0];
-          let mm = selTime[1]<10?'0'+selTime[1]:selTime[1];
-         
-          time =  hh+':'+mm;
-
-          date = date + ' ' +time
+        if(this.type == 'datenone'){
+          date = date + ' ' +this.time
         }
 
         this.$emit('confirm',date)
-        this.show = false;
       }
 		},
 	}
@@ -292,15 +272,19 @@
       }
 
       .calendar-date{
-        display: flex;
-        justify-content: space-around;
+        // display: flex;
+        // justify-content: space-around;
         height: 3rem;
         padding: .2rem 0;
+        width: 100%;
         background-color: #fff;
         .calendar-date-column{
           overflow: auto;
+          height: 100%;
+          display: flex;
+          align-items: center;
           p{
-            width: 40px;
+            width: 50%;
             height: 30px;
             line-height: 30px;
             text-align: center;

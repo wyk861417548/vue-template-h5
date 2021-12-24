@@ -1,9 +1,10 @@
 <template>
 	<div class="calendar" v-show="show">
     <div class="calendar-box" >
-      <date  :type='type' v-if="type!='month' && type!='year'" @cancel="cancel" @confirm="confirm"></date>
+      <date  :type='type' v-if="calType.indexOf(type) == -1" @cancel="cancel" @confirm="confirm"></date>
       <month :type='type' v-if="type=='month'" @cancel="cancel" @confirm="confirm"></month>
       <year :type='type' v-if="type=='year'" @cancel="cancel" @confirm="confirm"></year>
+      <datenone :type='type' v-if="type=='datenone'" @cancel="cancel" @confirm="confirm"></datenone>
     </div>
   </div>
 </template>
@@ -12,11 +13,13 @@
   import date from "./date.vue";
   import month from "./month.vue";
   import year from "./year.vue";
+  import datenone from "./datenone.vue";
 	export default {
     components:{
       date,
       month,
-      year
+      year,
+      datenone
     },
     // 是否显示时间
     props:['type'],
@@ -24,6 +27,8 @@
 			return {
 				// 是否显示日期组件
 				show:false,
+
+        calType:['month','year','datenone'],
 
         // 当前选择时期还是时间 
         defalutShow:false,
