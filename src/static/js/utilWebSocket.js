@@ -1,4 +1,4 @@
-import api from "@common/js/api.js";
+import api from "@/static/js/api.js";
 
 // webSocket 对象
 let ws = null;

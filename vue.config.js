@@ -19,23 +19,24 @@ module.exports = {
   //     }
   //   }
   // },
+  productionSourceMap:process.env.NODE_ENV==='production'?false:true,
 
   // 配置全局通用自定义scss变量
   css:{
     loaderOptions:{
       sass:{
-        prependData:'@import "~@common/scss/common.scss";'
+        prependData:'@import "~@/static/scss/common.scss";'
       }
     }
   },
   
-  //配置全局引入路径
-  chainWebpack:config => {
-    config.resolve.alias
-      .set('@components',path.join(__dirname,'./src/components'))
-      .set('@common',path.join(__dirname,'./common'))
-      .set('@views',path.join(__dirname,'./src/views'))
-      .set('@store',path.join(__dirname,'./src/store'))
-      .set('@src',path.join(__dirname,'./src'))
-  }
+  // //配置全局引入路径
+  // chainWebpack:config => {
+  //   config.resolve.alias
+  //     .set('@components',path.join(__dirname,'./src/components'))
+  //     .set('@/static',path.join(__dirname,'./src/static'))
+  //     .set('@/views',path.join(__dirname,'./src/views'))
+  //     .set('@store',path.join(__dirname,'./src/store'))
+  //     .set('@',path.join(__dirname,'./src'))
+  // }
 }

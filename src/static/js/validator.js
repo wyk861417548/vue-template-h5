@@ -1,4 +1,4 @@
-import F from "@common/js/config.js";
+import F from "@/static/js/config.js";
 //正则对象配置
 export default {
 	Require : /.+/,
@@ -10,8 +10,6 @@ export default {
 	Number : /^\d+$/,
 	Zip : /^[1-9]\d{5}$/,
 	QQ : /^[1-9]\d{4,16}$/,
-	Integer : /^[-\+]?\d+$/,
-	Double : /^[-\+]?\d+(\.\d+)?$/,
 	English : /^[A-Za-z]+$/,
 	Chinese :  /^[\u0391-\uFFE5]+$/,
 	IdCard : function(number){

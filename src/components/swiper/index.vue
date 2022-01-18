@@ -114,19 +114,19 @@ export default {
 
 <style>
 .swiper-slide {
-height: auto;
-color: #000;
-/*font-size: 16px;*/
-font-size: 18pt;
-transition: all 0.3s;
-/* transform: scale(0.5) */
+  height: auto;
+  color: #000;
+  /*font-size: 16px;*/
+  font-size: 18pt;
+  transition: all 0.3s;
+  /* transform: scale(0.5) */
 }
 .swiper-slide-active {
-/* z-index: 999 !important; */
-/* transform: scale(1) */
+  /* z-index: 999 !important; */
+  /* transform: scale(1) */
 }
 /* 小圆球 */
 .swiper-pagination-bullet-active {
-background: #24f1b6 !important;
+  background: #24f1b6 !important;
 }
 </style>

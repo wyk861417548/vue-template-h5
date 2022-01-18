@@ -5,7 +5,7 @@
 
     <div v-show="state.state_==1" class="j-full-curbox">
       <div class="j-full-center" style="top:40%;text-align:center;">
-        <img src="@common/images/nodata.png" alt="图片">
+        <img src="@/static/images/nodata.png" alt="图片">
         <div style="color:#5A5B5C;">暂无数据</div>
       </div>
     </div>

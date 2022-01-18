@@ -77,32 +77,9 @@ export default {
     //用声音阅读文字， 语音播放
     audio.speak(msgAudio); 
 
-                
-  //  n.cancel();  //取消阅读
-  //  n.pause();  //暂停阅读
+          
   },
-
-  // 浙里办拨打电话
-  call:function(phone){
-    dd.ready({
-      developer: 'jiangc@dtdream.com',
-      usage: [
-        'dd.biz.telephone.call'
-      ],
-      remark: 'call'
-    }, function () {
-      dd.biz.telephone.call({
-        corpId: phone,
-        onSuccess: function (data) {
-          console.log("success:" + JSON.stringify(data))
-        },
-        onFail: function (error) {
-          console.error("error:" + JSON.stringify(error))
-        }
-      })
-    })
-  },
-
+  
   /**
    * @param {*} arr  需要去重的对象
    * @param {*} key  根据对象中的某个值来去重
