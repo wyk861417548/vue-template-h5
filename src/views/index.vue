@@ -6,7 +6,7 @@
         {{item.name}} -- {{item.age}}
       </div>
     </BScroll> -->
-    <p>我是父級-{{data.title}}--{{data.content}}-----{{data.age}}</p>
+    <!-- <p>我是父級-{{data.title}}--{{data.content}}-----{{data.age}}</p> -->
 
     <Ceshi v-bind="data" @myEvent="handler">
       <template v-slot="{user}">

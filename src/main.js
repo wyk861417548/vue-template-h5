@@ -2,11 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import config from "@/static/js/config.js";
-import ViewUI from 'view-design';
-import 'view-design/dist/styles/iview.css';
 import {get,post,postmult} from "@/static/js/request.js";
 import api from "@/utils/api.js";
 import validator from "@/static/js/validator.js";
+
+// vant组件
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
 
 
 // 全局公共组件
@@ -40,9 +43,6 @@ Vue.prototype.$skip = (e,params)=>{
   app.$router.push({path:url,query:params?params:''});
 }
 
-
-Vue.use(ViewUI);
-// Vue.use(component);
 
 var app = new Vue({
   router,
