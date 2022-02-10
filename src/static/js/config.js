@@ -249,26 +249,6 @@ export default {
   }
 }
 
-
-//移动端（iphone6,7,8）动态设置基于html fontSize 10px = 1rem;
-!(function (doc, win) {
-  var docEle = doc.documentElement,
-    // evt = "onorientationchange" in window ? "orientationchange" : "resize",
-    evt = 'resize',
-    fn = function () {
-      var width = docEle.clientWidth;
-      // console.log(width);
-      width = width < 320 ? 320 : width;
-      width = width > 640 ? 640 : width;
-      width && (docEle.style.fontSize = (width / 3.75) + "px");
-    };
-
-  win.addEventListener(evt, fn, false);
-  fn();
-  // doc.addEventListener("DOMContentLoaded", fn, false);
-
-}(document, window))
-
 Date.prototype.format = function (fmt) { //author: meizz 
   var cNumber = ["日", "一", "二", "三", "四", "五", "六"];
   var o = {

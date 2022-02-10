@@ -32,7 +32,7 @@
     </van-cell-group>
 
     <van-goods-action>
-      <van-goods-action-icon icon="chat-o" @click="sorry">
+      <van-goods-action-icon icon="chat-o" @click="$skip" data-url="/index2">
         客服
       </van-goods-action-icon>
       <van-goods-action-icon icon="cart-o" @click="onClickCart">
@@ -49,8 +49,33 @@
 </template>
 
 <script>
+import {
+  Tag,
+  Col,
+  Icon,
+  Cell,
+  CellGroup,
+  Swipe,
+  Toast,
+  SwipeItem,
+  GoodsAction,
+  GoodsActionIcon,
+  GoodsActionButton
+} from 'vant';
 
 export default {
+  components: {
+    [Tag.name]: Tag,
+    [Col.name]: Col,
+    [Icon.name]: Icon,
+    [Cell.name]: Cell,
+    [CellGroup.name]: CellGroup,
+    [Swipe.name]: Swipe,
+    [SwipeItem.name]: SwipeItem,
+    [GoodsAction.name]: GoodsAction,
+    [GoodsActionIcon.name]: GoodsActionIcon,
+    [GoodsActionButton.name]: GoodsActionButton
+  },
 
   data() {
     return {
@@ -77,13 +102,13 @@ export default {
     },
 
     sorry() {
-      this.$toast('暂无后续逻辑~');
+      Toast('暂无后续逻辑~');
     }
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .goods {
   padding-bottom: 50px;
 

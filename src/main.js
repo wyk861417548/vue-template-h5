@@ -5,6 +5,7 @@ import config from "@/static/js/config.js";
 import {get,post,postmult} from "@/static/js/request.js";
 import api from "@/utils/api.js";
 import validator from "@/static/js/validator.js";
+import 'lib-flexible/flexible'
 
 // vant组件
 import Vant from 'vant';
