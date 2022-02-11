@@ -1,18 +1,19 @@
 <template>
   <!-- j-full-curbox 当前元素占满全屏  j-flex-col flex垂直布局 -->
   <div>
-    <!-- <BScroll ref="scroll" @change="change" :vdata="dataList">
-      <div class="list" style="pointer-events: auto;" v-for='(item,index) in dataList' :key='index'>
+    <!-- <p @click="$skip" data-url="/index2">我是父級-{{data.title}}--{{data.content}}-----{{data.age}}</p> -->
+    <BScroll ref="scroll" @change="change" :vdata="dataList">
+      <div class="list"  v-for='(item,index) in dataList' :key='index' @click="$skip" data-url="/index2">
         {{item.name}} -- {{item.age}}
       </div>
-    </BScroll> -->
-    <!-- <p>我是父級-{{data.title}}--{{data.content}}-----{{data.age}}</p> -->
+    </BScroll>
+    
 
-    <Ceshi v-bind="data" @myEvent="handler">
+    <!-- <Ceshi v-bind="data" @myEvent="handler">
       <template v-slot="{user}">
         <p>获取子组件数据{{user.name}}</p>
       </template>
-    </Ceshi>
+    </Ceshi> -->
   </div>
 
 </template>
@@ -46,12 +47,16 @@ export default {
   },
 
   mounted(){
-    // this.getData()
+    this.getData()
   },
 
   methods: {
     handler(){
       console.log("点击我");
+    },
+
+    skip(){
+      console.log("你好");
     },
 
     getData(){
@@ -92,12 +97,12 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-  .list{
-    height: .5rem;
+  .list {
+    margin-top: 20px;
+    height: 50px;
     background: #ddd;
-    line-height: .5rem;
+    line-height: 50px;
     text-align: center;
-    
   }
 
 </style>

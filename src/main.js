@@ -12,6 +12,15 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
+// 图片懒加载
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad, {
+  preLoad: 1,
+  error: require('@/static/images/icon/error.png'),
+  loading: require('@/static/images/icon/default.png'),
+  attempt: 2,
+})
+
 
 // 全局公共组件
 import "@/static/js/index.js";
@@ -39,6 +48,7 @@ Vue.prototype.$validator = validator;
  * */
 Vue.prototype.$skip = (e,params)=>{
   var dataset = e.target.dataset;
+  console.log("dataset",dataset);
   var url = dataset.url;
   if(!url)return;
   app.$router.push({path:url,query:params?params:''});

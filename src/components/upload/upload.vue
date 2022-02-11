@@ -142,21 +142,21 @@ export default {
     .upBox{
       position: relative;
       display:inline-block;
-      width: .5rem;
-      height: .5rem;
-      margin:0 .1rem;
+      width: 50px;
+      height: 50px;
+      margin:0 10px;
       border: 1px dashed #ddd;
-      border-radius: .05rem;
+      border-radius: 5px;
     }
 
     .upload{
       position: relative;
       display:inline-block;
-      width: .5rem;
-      height: .5rem;
-      margin:0 .1rem;
+      width: 50px;
+      height: 50px;
+      margin:0 10px;
       border: 1px dashed #ddd;
-      border-radius: .05rem;
+      border-radius: 5px;
       i{color: #ddd;}
       &:hover{
         border-color:#108ee9;

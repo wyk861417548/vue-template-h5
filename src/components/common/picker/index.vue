@@ -92,7 +92,7 @@ export default {
       .slot{
         background: #fff;
         .header{
-          padding:.1rem .2rem;
+          padding:10px 20px;
           border-bottom:1px solid rgba(200,200,200, .2);
         }
       }

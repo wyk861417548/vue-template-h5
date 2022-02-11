@@ -31,6 +31,36 @@ BScroll.use(Pullup);
 BScroll.use(MouseWheel)
 
 export default {
+  props:{
+    options:{
+      type:Object,
+      default:()=>{
+        return {
+          // 1. probeType 为 0，在任何时候都不派发 scroll 事件，
+          // 2. probeType 为 1，仅仅当手指按在滚动区域上，每隔 momentumLimitTime 毫秒派发一次 scroll 事件，
+          // 3. probeType 为 2，仅仅当手指按在滚动区域上，一直派发 scroll 事件，
+          // 4. probeType 为 3，任何时候都派发 scroll 事件，包括调用 scrollTo 或者触发 momentum 滚动动画
+          probeType: 3,
+
+          // 手指滑动滚动
+          pullUpLoad: true,
+
+          // 鼠标拖拽滚动
+          mouseWheel: true,
+
+          // 允许触发点击事件
+          click: true,
+        }
+      }
+    },
+    // 配置
+    props:{
+      type:Object,
+      default:()=>{
+        return {multiple:false}
+      }
+    },
+  },
   data() {
     return {
       isPullUpLoad: true,
@@ -44,11 +74,7 @@ export default {
   },
   methods: {
     initBscroll() {
-      this.scroll = new BScroll(this.$refs.scroll, {
-        probeType: 3,
-        pullUpLoad: true,
-        mouseWheel: true
-      });
+      this.scroll = new BScroll(this.$refs.scroll,this.options);
 
       this.scroll.on("pullingUp", this.pullingUpHandler);
     },
@@ -88,13 +114,6 @@ export default {
   top: 0;
   bottom: 0;
   overflow: hidden;
-  .list {
-    margin-top: .2rem;
-    height: 0.5rem;
-    background: #ddd;
-    line-height: 0.5rem;
-    text-align: center;
-  }
   .pullup-tips {
     padding: 20px;
     text-align: center;

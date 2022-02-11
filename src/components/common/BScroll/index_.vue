@@ -9,7 +9,7 @@
         <div style="color:#5A5B5C;">暂无数据</div>
       </div>
     </div>
-    <div v-show="state.state_==2"  style="text-align:center;line-height:1;padding:.1rem;font-size:.14rem;color:#c5c5c5;">
+    <div v-show="state.state_==2"  style="text-align:center;line-height:1;padding:10px;font-size:14px;color:#c5c5c5;">
       已经到底了
     </div>
   </div>

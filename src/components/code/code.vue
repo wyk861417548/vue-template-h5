@@ -54,15 +54,15 @@
 
 <style scoped lang="scss">
 	.c-code{
-		height: .4rem;
-		width: .75rem;
+		height: 40px;
+		width: 75px;
 		.down{
 			height: 100%;
 			width: 100%;
 			background:#ddd !important;
 		}
 		/* 验证码 */
-		.verifyCode{line-height:.4rem;border-radius:.04rem;background-color:#41c39e;color:#fff;text-align:center;}
+		.verifyCode{line-height:40px;border-radius:4px;background-color:#41c39e;color:#fff;text-align:center;}
 		.ban{background: #ddd !important;pointer-events: none;}
 	}
 </style>

@@ -7,13 +7,13 @@
   >
     <slot>
       <swiper-slide>
-        <div style="height: 1rem">I'm Slide 1</div>
+        <div style="height: 100px">I'm Slide 1</div>
       </swiper-slide>
       <swiper-slide>
-        <div style="height: 1rem">I'm Slide 2</div>
+        <div style="height: 100px">I'm Slide 2</div>
       </swiper-slide>
       <swiper-slide>
-        <div style="height: 1rem">I'm Slide 3</div>
+        <div style="height: 100px">I'm Slide 3</div>
       </swiper-slide>
     </slot>
     <div class="swiper-pagination" slot="pagination"></div>
