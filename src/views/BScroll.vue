@@ -8,33 +8,14 @@
       </div>
     </BScroll>
     
-
-    <!-- <Ceshi v-bind="data" @myEvent="handler">
-      <template v-slot="{user}">
-        <p>获取子组件数据{{user.name}}</p>
-      </template>
-    </Ceshi> -->
   </div>
 
 </template>
 
 <script>
-import Ceshi from "./ceshi.vue"
 export default {
-  components:{
-    Ceshi
-  },
   data () {
     return {
-      data:{
-        xxx:"20",
-        title:"大傻逼",
-        content:{
-          name:"你好",
-          age:30
-        }
-      },
-
       dataList:[],
 
       count:1,

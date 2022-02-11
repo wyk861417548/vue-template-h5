@@ -7,15 +7,15 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/index.vue')
+      component: () => import(/* webpackChunkName: "about" */ '@/views/vant.vue')
     },
     {
       path: '/index',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/index.vue'),meta: {title:"滚动页面",keepAlive:true}
+      component: () => import(/* webpackChunkName: "about" */ '@/views/vant.vue'),meta: {title:"滚动页面",keepAlive:true}
     },
     {
-      path: '/index2',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/index2.vue')
+      path: '/BScroll',
+      component: () => import(/* webpackChunkName: "about" */ '@/views/BScroll.vue')
     },
     {
       path: '/v-lazy',
