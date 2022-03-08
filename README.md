@@ -12,7 +12,11 @@ vue2 + vuex + vue-router +  + ES6/7 + sass + vant
 │   ├──static                  # 图片、字体等静态资源  
         ├──css                 # css
         ├──images              # 图片
-        ├──js                  # 公共js（index.js全局主动注册公共组件）
+        ├──js                  # 公共js
+            ├──index           # 全局主动注册公共组件
+            ├──config          # 公共方法
+            ├──request         # 公共请求封装
+            ├──validator       # 提交校验
         ├──scss                # 自定义全局scss
 │   ├── components             # 全局公用组件
         ├──common              # 全局公共组件（“自动注册” 遵循一个文件夹里面定义index.vue格式，文件夹名称作为全局组件使用名称）
@@ -24,6 +28,8 @@ vue2 + vuex + vue-router +  + ES6/7 + sass + vant
 │   ├── router                 # 路由
 │   ├── store                  # 全局store管理
 │   ├── utils                  # 全局公用方法
+        ├── api                # 请求接口配置
+        ├── plugins            # 插件引入
 │   ├── views                  # views所有页面
 │   ├── App.vue                # 入口页面
 │   ├── main.js                # 入口文件 加载组件 初始化等
