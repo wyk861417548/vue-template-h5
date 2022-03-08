@@ -25,7 +25,7 @@ export default {
       ],
 
       bgList:[
-        {name:"1",menuId:'10',img:require('@/static/images/bg_lazy.gif')}
+        {name:"1",menuId:'10',img:require('@/static/images/nodata.png')}
       ]
     };
   },
