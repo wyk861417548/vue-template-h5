@@ -4,11 +4,7 @@
 import axios from 'axios';
 import F from "@/static/js/config.js";
 
-// 不做限制的code，3007订单交易轮询中 3009订单交易失败
-const CODE = ["-3007", '-3009']
-
 // 环境的切换
-console.log('process.env.VUE_APP_URL', process.env.VUE_APP_URL);
 if (process.env.NODE_ENV == 'dev') {
   axios.defaults.baseURL = 'api/';
 } else {
@@ -28,9 +24,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 var count = 0;
 // 请求拦截器
 axios.interceptors.request.use(
-
   config => {
-    // alert(++count);
     ++count == 1 ? F.loading() : "";
     return config;
   },
@@ -44,7 +38,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   response => {
     --count == 0 ? F.loading(false) : "";
-    // console.log("响应拦截response",response);
+
     if (response.status === 200) {
       return Promise.resolve(response);
     } else {
@@ -54,10 +48,6 @@ axios.interceptors.response.use(
   // 服务器状态码不是200的情况    
   error => {
     --count == 0 ? F.loading(false) : "";
-    // if(!error.response || error.response == undefined){
-    //   location.href = "/main/index.html#/error";
-    //   return;
-    // }
     if (error.response) {
       switch (error.response.status) {
         // 401: 未登录                             
@@ -83,13 +73,8 @@ axios.interceptors.response.use(
 
 //错误统一处理
 function handle(res) {
-  console.log("handle", res);
-
-
   //  未登录处理
   if (res && (res.code == "401" || res.code == '-9001')) {
-
-
     return;
   }
 
@@ -102,19 +87,17 @@ function handle(res) {
  * @param {Object} params [请求时携带的参数] 
  * @param {Object} opt 用于自定义处理配置
  */
-export function get(url, params) {
+export function get(url, params,opt={}) {
   F.loading(false);
   F.loading();
 
   return new Promise((resolve, reject) => {
 
-    axios.get(url, {
-        params: params
-      })
+    axios.get(url,params)
       .then(res => {
         F.loading(false);
 
-        if (res && res.data.code == "200" || CODE.includes(res.data.code)) {
+        if (res && res.data.code == 200 || opt.back) {
           resolve(res.data);
         } else {
           handle(res.data)
@@ -131,8 +114,9 @@ export function get(url, params) {
  * post方法，对应post请求 
  * @param {String} url [请求的url地址] 
  * @param {Object} params [请求时携带的参数] 
+ * @param {Object} opt 用于自定义处理配置
  */
-export function post(url, params) {
+export function post(url, params,opt={}) {
   F.loading(false);
   F.loading();
 
@@ -144,7 +128,7 @@ export function post(url, params) {
 
         F.loading(false);
 
-        if (res && res.data.code == "200" || CODE.includes(res.data.code)) {
+        if (res && res.data.code == "200" || opt.back) {
           resolve(res.data);
         } else {
           handle(res.data)
@@ -162,19 +146,20 @@ export function post(url, params) {
  * postmult方法，对应post请求  提交图片
  * @param {String} url [请求的url地址] 
  * @param {Object} params [请求时携带的参数] 
+ * @param {Object} opt 用于自定义处理配置
  */
-export function postmult(url, params, opt, headers) {
+export function postmult(url, params, opt={}) {
   F.loading(false);
   F.loading();
 
   return new Promise((resolve, reject) => {
 
-    axios.post(url, params, headers)
+    axios.post(url, params, {'Content-Type': 'multipart/form-data'},)
       .then(res => {
 
         F.loading(false);
 
-        if (res.data.code == "200") {
+        if (res.data.code == "200" || opt.back) {
           resolve(res.data);
         } else {
           handle(res.data)

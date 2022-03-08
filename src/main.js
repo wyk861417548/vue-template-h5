@@ -16,8 +16,8 @@ Vue.use(Vant);
 import VueLazyLoad from 'vue-lazyload'
 Vue.use(VueLazyLoad, {
   preLoad: 1,
-  error: require('@/static/images/icon/error.png'),
-  loading: require('@/static/images/icon/default.png'),
+  error: require('@/static/images/lazy/error.png'),
+  loading: require('@/static/images/lazy/default.png'),
   attempt: 2,
 })
 

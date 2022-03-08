@@ -95,9 +95,7 @@ export default {
 
     // 上传图片
     upload(param){
-      var config = {headers: {'Content-Type': 'multipart/form-data'}}
-
-      this.$postmult(this.$api.common.file,param,false,config).then(res=>{
+      this.$postmult(this.$api.common.file,param).then(res=>{
         this.$refs.inputer.value = null;
         this.uploadList.push(res.data);
       })
