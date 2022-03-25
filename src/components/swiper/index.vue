@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        // loop: true,
+        loop: true,
 
         // 自动播放
         // autoplay: {
@@ -47,7 +47,7 @@ export default {
         initialSlide: 1,
 
         // 设定为true时，active slide会居中，而不是默认状态下的居左。
-        centeredSlides: true,
+        // centeredSlides: true,
 
         // 设置slider容器能够同时显示的slides数量
         slidesPerView: 1,
@@ -114,10 +114,8 @@ export default {
 
 <style>
 .swiper-slide {
-  height: auto;
-  color: #000;
+  /* height: auto; */
   /*font-size: 16px;*/
-  font-size: 18pt;
   transition: all 0.3s;
   /* transform: scale(0.5) */
 }

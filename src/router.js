@@ -20,6 +20,10 @@ const router =  new Router({
     {
       path: '/v-lazy',
       component: () => import(/* webpackChunkName: "about" */ '@/views/v-lazy.vue')
+    },
+    {
+      path: '/swiper',
+      component: () => import(/* webpackChunkName: "about" */ '@/views/swiper.vue')
     }
   ]
 })
