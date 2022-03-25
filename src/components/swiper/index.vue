@@ -4,6 +4,8 @@
     :options="swiperOption"
     ref="mySwiper"
     @click-slide="handleClickSlide"
+    @mouseenter.native="on_bot_enter" 
+    @mouseleave.native="on_bot_leave"
   >
     <slot>
       <swiper-slide>
@@ -34,7 +36,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        loop: true,
+        // loop: true,
 
         // 自动播放
         // autoplay: {
@@ -44,7 +46,7 @@ export default {
         // },
 
         //初始化显示
-        initialSlide: 1,
+        initialSlide: 0,
 
         // 设定为true时，active slide会居中，而不是默认状态下的居左。
         // centeredSlides: true,
@@ -63,12 +65,12 @@ export default {
         //   nextEl: ".swiper-button-next",
         //   prevEl: ".swiper-button-prev"
         // },
-        on: {
-          slideChangeTransitionEnd: ()=> { //切换结束时，告诉我现在是第几个slide
-            if(!this.swiper)return;
-            this.$emit("change",this.swiper.activeIndex)
-          },
-        },
+        // on: {
+        //   slideChangeTransitionEnd: ()=> { //切换结束时，告诉我现在是第几个slide
+        //     if(!this.swiper)return;
+        //     this.$emit("change",this.swiper.activeIndex)
+        //   },
+        // },
       },
     };
   },
@@ -86,6 +88,14 @@ export default {
       console.log("clie", index);
     },
 
+    //通过获得的swiper对象来暂停自动播放
+    on_bot_enter() {
+      this.swiper.autoplay.stop()
+    },
+    on_bot_leave() {
+      this.swiper.autoplay.start()
+    },
+
     merge(option) {
       if (option) {
         for (const key in option) {
@@ -100,11 +110,9 @@ export default {
   watch: {
     option: {
       handler(newVal) {
-        console.log("newVal", newVal);
         for (const key in newVal) {
           this.swiperOption[key] = newVal[key];
         }
-        console.log("this.swoper", this.swiperOption.initialSlide);
       },
       deep: true,
     },
