@@ -5,11 +5,7 @@ import axios from 'axios';
 import F from "@/static/js/config.js";
 
 // 环境的切换
-if (process.env.NODE_ENV == 'dev') {
-  axios.defaults.baseURL = 'api/';
-} else {
-  axios.defaults.baseURL = process.env.VUE_APP_URL;
-}
+axios.defaults.baseURL = process.env.VUE_APP_URL;
 
 // 请求超时时间
 axios.defaults.timeout = 10000;

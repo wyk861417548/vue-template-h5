@@ -28,15 +28,5 @@ module.exports = {
         prependData:'@import "~@/static/scss/common.scss";'
       }
     }
-  },
-  
-  // //配置全局引入路径
-  // chainWebpack:config => {
-  //   config.resolve.alias
-  //     .set('@components',path.join(__dirname,'./src/components'))
-  //     .set('@/static',path.join(__dirname,'./src/static'))
-  //     .set('@/views',path.join(__dirname,'./src/views'))
-  //     .set('@store',path.join(__dirname,'./src/store'))
-  //     .set('@',path.join(__dirname,'./src'))
-  // }
+  }
 }
