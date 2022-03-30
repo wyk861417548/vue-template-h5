@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-  /* 注意这里别写lang='scss'或者其他  不然>>>不生效 */
+  /* 注意这里别写lang='less'或者其他  不然>>>不生效 */
   #qrCode >>> canvas{
     width: 100% !important;
     height: 100% !important;

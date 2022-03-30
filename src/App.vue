@@ -7,6 +7,6 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="less">
   @import url('~@/static/css/common.css');
 </style>

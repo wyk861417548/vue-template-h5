@@ -5,7 +5,9 @@
         <img :src="thumb" >
       </van-swipe-item>
     </van-swipe>
-
+    <div class="mixin-flex">
+      dawdw你好
+    </div>
     <van-cell-group>
       <van-cell>
         <div class="goods-title">{{ goods.title }}</div>

@@ -17,7 +17,7 @@ vue2 + vuex + vue-router +  + ES6/7 + sass + vant
             ├──config          # 公共方法
             ├──request         # 公共请求封装
             ├──validator       # 提交校验
-        ├──scss                # 自定义全局scss
+        ├──less                # 自定义全局less
 │   ├── components             # 全局公用组件
         ├──common              # 全局公共组件（“自动注册” 遵循一个文件夹里面定义index.vue格式，文件夹名称作为全局组件使用名称）
         ├──code                # 发送验证码倒计时

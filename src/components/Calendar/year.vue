@@ -82,7 +82,7 @@
 	}
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
   .arrow{display: inline-block; width: .2rem;height: .2rem;border-top: 2px solid #000;border-right: 2px solid #000;transform:rotate(45deg) scale(.5);}  
   
   .calendar{

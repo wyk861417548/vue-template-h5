@@ -52,7 +52,7 @@
 	}
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
 	.c-code{
 		height: 40px;
 		width: 75px;

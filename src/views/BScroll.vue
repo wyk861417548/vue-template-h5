@@ -77,7 +77,7 @@ export default {
   }
 }
 </script>
-<style lang='scss' scoped>
+<style lang='less' scoped>
   .list {
     margin-top: 20px;
     height: 50px;

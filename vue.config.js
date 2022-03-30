@@ -1,5 +1,4 @@
 const path = require("path");
-
 module.exports = {
   publicPath:'./',
 
@@ -21,12 +20,11 @@ module.exports = {
   // },
   productionSourceMap:process.env.NODE_ENV==='production'?false:true,
 
-  // 配置全局通用自定义scss变量
-  css:{
-    loaderOptions:{
-      sass:{
-        prependData:'@import "~@/static/scss/common.scss";'
-      }
+  // 配置全局通用自定义less变量
+  pluginOptions: {
+    "style-resources-loader": {
+      preProcessor: "less",
+      patterns: [path.resolve(__dirname, "./src/static/less/common.less")]
     }
   }
 }

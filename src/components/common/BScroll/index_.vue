@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
   .my-scroll{
     width:100%;
     height:100%;

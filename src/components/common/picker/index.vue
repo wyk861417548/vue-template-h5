@@ -78,7 +78,7 @@ export default {
   },
 }
 </script>
-<style lang='scss' scoped>
+<style lang='less' scoped>
   .picker{
     .mask{
       background: rgba(0, 0, 0, 0.3);

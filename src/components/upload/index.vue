@@ -134,7 +134,7 @@ export default {
   }
 }
 </script>
-<style lang='scss' scoped>
+<style lang='less' scoped>
   $bg-color-upload: rgba(0, 0, 0, 0.3);
   .my-upload{
     .upBox{

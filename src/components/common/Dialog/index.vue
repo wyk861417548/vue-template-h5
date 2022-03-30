@@ -25,7 +25,7 @@
 	}
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
 	.modal{
 		.mask{
       position: fixed;

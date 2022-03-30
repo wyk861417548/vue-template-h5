@@ -78,7 +78,7 @@
 	}
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="less">
   
   .calendar{
     height: 100vh;

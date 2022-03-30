@@ -58,7 +58,7 @@ export default {
   }
 }
 </script>
-<style lang='scss' scoped>
+<style lang='less' scoped>
   p{
     height: 45px;
     background: #ff3;
