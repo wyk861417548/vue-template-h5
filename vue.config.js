@@ -24,7 +24,7 @@ module.exports = {
   pluginOptions: {
     "style-resources-loader": {
       preProcessor: "less",
-      patterns: [path.resolve(__dirname, "./src/static/less/common.less")]
+      patterns: [path.resolve(__dirname, "./src/assets/less/common.less")]
     }
   }
 }

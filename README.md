@@ -9,7 +9,7 @@ vue2 + vuex + vue-router +  + ES6/7 + sass + vant
 ├── public                     # 静态资源
 │   └── index.html             # html模板
 ├── src                        # 源代码
-│   ├──static                  # 图片、字体等静态资源  
+│   ├──static                  # 图片、字体等静态资源 (存放不会变动的文件，不会被webpack处理)
         ├──css                 # css
         ├──images              # 图片
         ├──js                  # 公共js
@@ -17,6 +17,8 @@ vue2 + vuex + vue-router +  + ES6/7 + sass + vant
             ├──config          # 公共方法
             ├──request         # 公共请求封装
             ├──validator       # 提交校验
+    ├──assets                  # 图片、字体等资源  （存放会变动的文件，会被webpack处理）
+        ├──images              # 图片
         ├──less                # 自定义全局less
 │   ├── components             # 全局公用组件
         ├──common              # 全局公共组件（“自动注册” 遵循一个文件夹里面定义index.vue格式，文件夹名称作为全局组件使用名称）

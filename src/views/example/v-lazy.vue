@@ -7,7 +7,7 @@
       </section>
 
       <section v-for="(item) in bgList" :key="item.menuId">
-        <div v-lazy:background-image="item.img" style="width:960px;height:540px;background-repeat:no-repeat;background-size:100% 100%;background-position:0 0;"></div>
+        <div v-lazy:background-image="item.img" style="width:200px;height:200px;background-repeat:no-repeat;background-size:100% 100%;background-position:0 0;"></div>
       </section>
     </main>
 
