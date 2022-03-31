@@ -7,23 +7,23 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/vant.vue')
+      component: () => import(/* webpackChunkName: "about" */ '@/views/example/vant.vue')
     },
     {
       path: '/index',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/vant.vue'),meta: {title:"滚动页面",keepAlive:true}
+      component: () => import(/* webpackChunkName: "about" */ '@/views/example/vant.vue'),meta: {title:"滚动页面",keepAlive:true}
     },
     {
       path: '/BScroll',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/BScroll.vue')
+      component: () => import(/* webpackChunkName: "about" */ '@/views/example/BScroll.vue')
     },
     {
       path: '/v-lazy',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/v-lazy.vue')
+      component: () => import(/* webpackChunkName: "about" */ '@/views/example/v-lazy.vue')
     },
     {
       path: '/swiper',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/swiper.vue')
+      component: () => import(/* webpackChunkName: "about" */ '@/views/example/swiper.vue')
     }
   ]
 })
@@ -31,7 +31,7 @@ const router =  new Router({
 // 全局路由守卫
 router.beforeEach((to,path,next)=>{
   console.log("to",to);
-  document.title = to.meta.title?to.meta.title:"xxx"
+  document.title = to.meta.title?to.meta.title:"安心查"
   next();
 })
 
