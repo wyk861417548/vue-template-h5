@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import home from "./home/index.vue"
-import my from "./my/index.vue"
+import home from "./components/home.vue"
+import my from "./components/my.vue"
 export default {
   components:{
     home,

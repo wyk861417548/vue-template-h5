@@ -7,7 +7,7 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/example/vant.vue')
+      component: () => import(/* webpackChunkName: "about" */ '@/views/example/tab/index.vue')
     },
     {
       path: '/index',
