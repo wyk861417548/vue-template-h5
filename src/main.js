@@ -7,10 +7,6 @@ import api from "@/utils/api.js";
 import validator from "@/static/js/validator.js";
 import 'lib-flexible/flexible'
 
-
-// 全局公共组件
-import "@/static/js/index.js";
-
 // 各种插件引入
 import "@/utils/plugins.js";
 

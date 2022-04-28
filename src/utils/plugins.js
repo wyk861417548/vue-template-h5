@@ -5,6 +5,10 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
+
+// 全局公共组件
+import "@/static/js/index.js";
+
 import Vconsole from 'vconsole'
 if (process.env.NODE_ENV == 'dev') {
   let vConsole = new Vconsole()
