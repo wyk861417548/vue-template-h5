@@ -5,7 +5,7 @@
 <script>
 import QRCode from 'qrcodejs2';
 export default {
-  props:["code"],
+  props:["code","color"],
 
   data () {
     return {
@@ -23,20 +23,31 @@ export default {
   methods: {
     setCode(){
       this.qrcode = new QRCode(this.$refs.qrCodeDiv, {
-        text: this.text,
-        width:200,
-        height:200,
-        colorDark: "#333333", //二维码颜色
+        text: this.code || this.text,
+        width:1080,
+        height:1080,
+        colorDark: this.color || "#333333", //二维码颜色
         colorLight: "#ffffff", //二维码背景色
         correctLevel: QRCode.CorrectLevel.L//容错率，L/M/H
       })
     }
+
+    clearCode(){
+      let code = document.getElementById("qrCode");
+      code.innerHTML = '';
+    },
   },
 
   watch:{
+    // 不使用makeCode  是因为  不能再动态改变颜色
     code(newVal){
       this.text = newVal;
-      this.qrcode.makeCode(newVal);
+      // this.qrcode.makeCode(newVal);
+      this.clearCode();
+      this.$nextTick(function () {
+        this.setCode();
+      })
+      
     }
   }
 }

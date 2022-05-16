@@ -10,11 +10,9 @@
 </template>
 
 <script>
-import Swiper from "@/components/swiper/index.vue"
 import {swiperSlide } from "vue-awesome-swiper";
 export default {
   components:{
-    Swiper,
     swiperSlide
   },
   data () {

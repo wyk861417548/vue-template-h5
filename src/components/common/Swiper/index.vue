@@ -120,19 +120,30 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="less">
 .swiper-slide {
-  /* height: auto; */
+  height: auto;
+  color: #000;
   /*font-size: 16px;*/
+  font-size: 16px;
   transition: all 0.3s;
   /* transform: scale(0.5) */
 }
-.swiper-slide-active {
-  /* z-index: 999 !important; */
-  /* transform: scale(1) */
-}
-/* 小圆球 */
-.swiper-pagination-bullet-active {
-  background: #24f1b6 !important;
+/deep/ .swiper-pagination {
+  width: 60% !important;
+  left: 50% !important;
+  bottom: 0px;
+  .swiper-pagination-bullet {
+    width: 4px;
+    height: 4px;
+    background: #a3f0eb;
+  }
+  .swiper-pagination-bullet-active {
+    background: #fff !important;
+    width: 12px;
+    height: 4px;
+    border-radius: 4px;
+  }
+  transform: translate(-50%) !important;
 }
 </style>
