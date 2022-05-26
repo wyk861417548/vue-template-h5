@@ -89,7 +89,7 @@ export function get(url, params,opt={}) {
 
   return new Promise((resolve, reject) => {
 
-    axios.get(url,params)
+    axios.get(url,{params})
       .then(res => {
         F.loading(false);
 
