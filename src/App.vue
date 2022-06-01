@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="page-bg">
-     <keep-alive >
+    <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
     <router-view v-if="!$route.meta.keepAlive"></router-view>
@@ -8,5 +8,5 @@
 </template>
 
 <style lang="less">
-  @import url('~@/static/css/common.css');
+@import url('~@/static/css/common.css');
 </style>

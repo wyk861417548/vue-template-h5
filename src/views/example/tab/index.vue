@@ -8,9 +8,9 @@
     </main>
 
     <footer>
-      <section class="flex-col-center" v-for='(item,index) in tab' :key='index' @click="change(item.prop)">
-        <img :src="require(`@/assets/images/tab/${item.prop}${cur==item.prop?'_active.gif':'.png'}`)" alt="">
-        <p>{{item.name}}</p>
+      <section class="j-v-c" v-for='(item, index) in tab' :key='index' @click="change(item.prop)">
+        <img :src="require(`@/assets/images/tab/${item.prop}${cur == item.prop ? '_active.gif' : '.png'}`)" alt="">
+        <p>{{ item.name }}</p>
       </section>
     </footer>
 
@@ -22,52 +22,53 @@
 import home from "./components/home.vue"
 import my from "./components/my.vue"
 export default {
-  components:{
+  components: {
     home,
     my
   },
-  data () {
+  data() {
     return {
-      tab:[
-        {name:"首页",prop:"home"},
-        {name:"我的",prop:"my"},
+      tab: [
+        { name: "首页", prop: "home" },
+        { name: "我的", prop: "my" },
       ],
 
-      cur:"home"
+      cur: "home"
     };
   },
 
-  created(){},
+  created() { },
 
   methods: {
-    change(cur){
+    change(cur) {
       this.cur = cur;
     }
   }
 }
 </script>
 <style lang='less' scoped>
-  main{
-    position: relative;
-    flex: 1;
-  }
+main {
+  position: relative;
+  flex: 1;
+}
 
-  footer{
-    position: relative;
-    z-index: 10;
-    display: flex;
-    height: 60px;
-    background: #fff;
-    box-shadow: 0 0 5px #ddd;
-    section{
-      flex: 1;
-      text-align: center;
-      color: #999;
-      img{
-        width: 30px;
-        height: 30px;
-      }
+footer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 60px;
+  background: #fff;
+  box-shadow: 0 0 5px #ddd;
+
+  section {
+    flex: 1;
+    text-align: center;
+    color: #999;
+
+    img {
+      width: 30px;
+      height: 30px;
     }
   }
-
+}
 </style>
