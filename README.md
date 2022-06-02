@@ -73,7 +73,6 @@ data () {
 },
 
 getData(){
-      
   setTimeout(()=>{
     this.count++;
     console.log("this.",this.count,this.dataList);
