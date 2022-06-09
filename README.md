@@ -1,8 +1,15 @@
-# About
+## About
 
 此项目是基于vue-cli3.x构建的,基于vant框架的h5模板。
 ## 技术栈
 vue2 + vuex + vue-router +  + ES6/7 + sass + vant
+
+## 环境
+```
+npm 6.14.8
+node 14.15.1
+yarn 1.22.10
+```
 
 ## 目录结构
 ```
@@ -13,6 +20,12 @@ vue2 + vuex + vue-router +  + ES6/7 + sass + vant
         ├──css                 # css
         ├──images              # 图片
         ├──js                  # 公共js
+            ├──config（文件夹） # 公共方法拆分的js文件
+              ├──idCard        # 身份证处理相关
+              ├──kCompass      # 图片压缩
+              ├──loading       # 全局动画加载
+              ├──url           # 地址栏处理相关
+              ├──zlb           # 浙里办支付宝相关
             ├──index           # 全局主动注册公共组件
             ├──config          # 公共方法
             ├──request         # 公共请求封装
@@ -20,6 +33,8 @@ vue2 + vuex + vue-router +  + ES6/7 + sass + vant
     ├──assets                  # 图片、字体等资源  （存放会变动的文件，会被webpack处理）
         ├──images              # 图片
         ├──less                # 自定义全局less
+    ├── mixins                 # 代码混入
+        ├──keepAlive           # 页面缓存
 │   ├── components             # 全局公用组件
         ├──common              # 全局公共组件（“自动注册” 遵循一个文件夹里面定义index.vue格式，文件夹名称作为全局组件使用名称）
         ├──code                # 发送验证码倒计时
@@ -44,7 +59,7 @@ vue2 + vuex + vue-router +  + ES6/7 + sass + vant
 ├── postcss.config.js          # postcss 配置
 └── vue.config.js              # vue-cli 配置
 ```
-# 1.懒加载图片组件使用
+## 1.懒加载图片组件使用
 ```
 <section v-for="(item,index) in imgList" :key="index">
   <img v-lazy="item.img" alt="" style="width:200px;height:200px;">
@@ -56,7 +71,7 @@ imgList:[
 ]
 ```
 
-# 2.滚动组件使用
+## 2.滚动组件使用
 ```
 <BScroll ref="scroll" @change="change" :vdata="dataList">
   <div class="list"  v-for='(item,index) in dataList' :key='index' @click="$skip" data-url="/index2">
@@ -69,36 +84,96 @@ data () {
     dataList:[],
 
     count:1,
+
+    data:{
+      page: 1,
+      limit: 10,
+      total: 0,
+    }
   };
 },
 
-getData(){
-  setTimeout(()=>{
-    this.count++;
-    console.log("this.",this.count,this.dataList);
-    for (let i = 0; i < 20; i++) {
-      this.dataList.push({name:this.count+"---i---"+i,age:i})
+methods:{
+  //真实调用接口
+  getData(){
+    this.$post('url',this.data).then(({data}) => {
+      this.data.page++;
+      this.dataList.push(...data.list);
 
-      console.log("正在填充数据");
-    }
+      this.isScroll(this.dataList,data.total);
+    })
+  },
 
-    // 注意一定要保证  数据渲染完成
+  //模拟生成数据
+  getDataMock(){
+    setTimeout(()=>{
+      this.count++;
+      for (let i = 0; i < 20; i++) {
+        this.dataList.push({name:this.count+"---i---"+i,age:i})
+        console.log("正在填充数据");
+      }
+      // 注意一定要保证  数据渲染完成
+      this.isScroll(this.dataList,res.total);
+      
+    },2000)
+  },
+
+  isScroll(list,total){
+    //上拉加载默认状态status  0：可加载 1：无数据 2已结束
     this.$nextTick(()=>{
+      if(!this.$refs.scroll) return;
+
       this.$refs.scroll.finishPullUp();
       
-      if(this.dataList.length < 1){
+      if(list.length < 1){
         this.$refs.scroll.status = 1;
         return;
       }
 
-      if(this.count == 4){
-        //上拉加载默认状态 0：可加载 1：无数据 2已结束
+      if(total <= list.length ){
         this.$refs.scroll.status = 2;
         return;
       }
       
     })
+  },
+
+  //上划加载 
+  change(){
+    this.getData();
+  },
+}
+
+```
+
+## 3上传图片组件
+```
+<upload path='fullUrl' :max='3' @change="changeUpload"></upload>
+
+import upload from '@/components/upload/index.vue'
+export default {
+  components:{
+    upload
+  },
+}
+
+methods:{
+  changeUpload({name,value}){
     
-  },2000)
+  },
 }
 ```
+
+### Props
+
+| 参数 | 说明                                         | 类型   | 默认值 |
+| :--- | -------------------------------------------- | :----- | :----- |
+| max  | *最大上传数*                                 | Number | 1      |
+| path | *上传接口返回图片字段*（预览展示的图片地址） | String | path   |
+| name | *用于父组件接受已上传的图片名称*             | String | upload |
+
+### Events
+
+| 事件名  | 说明     | 回调参数                  |
+| :------ | -------- | :------------------------ |
+| @change | 上传回调 | {name:String,value:Array} |

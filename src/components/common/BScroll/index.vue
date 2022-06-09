@@ -94,6 +94,16 @@ export default {
       // })
     },
 
+    // keep-alive  重新加载  
+    reload(){
+      // 数据加载完成
+      this.scroll.scrollTo(0,0);
+      this.scroll.finishPullUp()
+      this.scroll.refresh();
+      this.isPullUpLoad = true;
+      
+    },
+
     // 容器刷新
     finishPullUp() {
       // 数据加载完成
@@ -101,6 +111,7 @@ export default {
       // 重新计算容器高度
       this.scroll.refresh();
       this.isPullUpLoad = false
+      this.status = 0;
     },
   },
 };

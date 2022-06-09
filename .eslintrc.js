@@ -13,5 +13,12 @@ module.exports = {
   },
   parserOptions: {
     parser: 'babel-eslint'
+  },
+  "globals":{
+    'AMap':false,
+    'aplus_queue':false,
+    'ZWJSBridge':false,
+    'AlipayJSBridge':false,
+    'WeixinJSBridge':false
   }
 }

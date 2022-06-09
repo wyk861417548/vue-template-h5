@@ -210,8 +210,6 @@ input[type="checkbox"]:checked::after{content: "";position: absolute;left: 50%;t
 /* 右箭头 */
 .arrow{display: inline-block; width: 10px;height: 10px;border-top: 2px solid #999;border-right: 2px solid #999;transform:rotate(45deg) scale(.5);}
 
-.triangle{display: inline-block;width: 0;height: 0;border: 10px solid transparent;border-bottom: 0;border-top-color: #999;transform: scale(.5);}
-
 /* 加载动画css 配合config.js中 loading使用*/
 .l-box .l-circle {width: 60px;height: 60px;position: absolute;left: 50%;top: 50%;transform: translate(-30px,-30px);}
 .l-circle div {content: '';position: absolute;width: 16px;height: 16px;background: #39C49E;top: 10px;left: 10px;transform-origin: 20px 20px;border-radius: 8px;animation: spin-a 2s infinite cubic-bezier(0.5, 0, 0.5, 1);}
