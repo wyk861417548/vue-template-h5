@@ -6,7 +6,7 @@
 export function scan(type){
   //检测是微信还是支付宝 0:普通 1:微信 2:支付宝 3:浙里办
   if(checkBrowser() == 3){
-    return scanZFB(type);
+    return scanZLB(type);
   }else{
     return scanZFB(type);
   }
@@ -49,7 +49,7 @@ export function call(phone){
   });
 }
 
-function checkBrowser() {
+export function checkBrowser() {
   if (/MicroMessenger/.test(window.navigator.userAgent)) {
     return 1;
   } else if (/AlipayClient/.test(window.navigator.userAgent)) {

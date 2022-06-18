@@ -6,11 +6,9 @@
 
       <div class="pullup-tips">
         <div v-if="!isPullUpLoad" class="before-trigger">
-          <div v-show="status==1" style="height:100vh;display: flex;justify-content: center;align-items: center;">
-            <div style="margin-top:-60%">
-              <img src="@/static/images/nodata.png" alt="图片">
-              <div style="color:#5A5B5C;">暂无数据</div>
-            </div>
+          <div v-show="status==1" class="j-v-c">
+            <img src="@/static/images/nodata.png" alt="图片">
+            <div style="color:#5A5B5C;margin-top:-60px;">暂无数据</div>
           </div>
           <span v-show="status!=1" class="pullup-txt">{{status==2?"已经到底了":'上拉加载更多数据'}}</span>
         </div>

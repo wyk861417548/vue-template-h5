@@ -25,19 +25,6 @@ export default {
     }
   },
 
-  //检测是微信还是支付宝 0:普通 1:微信 2:支付宝 3:浙里办
-  checkBrowser() {
-    if (/MicroMessenger/.test(window.navigator.userAgent)) {
-      return 1;
-    } else if (/AlipayClient/.test(window.navigator.userAgent)) {
-      return 2;
-    } else if (/ZLB/.test(window.navigator.userAgent)) {
-      return 3;
-    } else {
-      return 0;
-    }
-  },
-
   // 语音播报
   reader(text){
     let u =window.navigator.userAgent;
@@ -111,7 +98,7 @@ export default {
   },
 }
 
-Date.prototype.format = function (fmt) { //author: meizz 
+Date.prototype.format = function (fmt) { 
   var cNumber = ["日", "一", "二", "三", "四", "五", "六"];
   var o = {
     "M+": this.getMonth() + 1, //月份 

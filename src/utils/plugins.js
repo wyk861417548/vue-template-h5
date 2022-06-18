@@ -17,10 +17,24 @@ if (process.env.NODE_ENV == 'dev') {
 
 
 // 图片懒加载
-import VueLazyLoad from 'vue-lazyload'
-Vue.use(VueLazyLoad, {
-  preLoad: 1,
+import { Lazyload } from 'vant';
+Vue.use(Lazyload, {
+  lazyComponent: true,
   error: require('@/static/images/lazy/error.png'),
   loading: require('@/static/images/lazy/default.png'),
-  attempt: 2,
-})
+  preLoad: 1,
+  attempt: 1,
+});
+
+// v-lazy 单独配置 自定义加载以及错误图片
+// computed:{
+//   LazyloadImg(){
+//     return (img)=>{
+//       return {
+//         src: img,
+//         error: require('@/assets/images/health.png'),
+//         loading: require('@/assets/images/health.png'),
+//       }
+//     }
+//   }
+// },
