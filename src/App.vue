@@ -7,6 +7,22 @@
   </div>
 </template>
 
+<script>
+export default{
+  created(){
+    window.addEventListener('beforeunload',this.beforeunloadFn);
+  },
+
+  methods:{
+    beforeunloadFn(){
+      alert(1)
+      this.$store.commit('updateState');
+    },
+
+  }
+}
+</script>
+
 <style lang="less">
 @import url('~@/static/css/common.css');
 </style>

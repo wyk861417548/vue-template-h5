@@ -21,6 +21,12 @@
         <button class="el-button el-button-primary" @click="$skip" data-url='/vant-scroll'>vant-scroll</button>
       </section>
 
+      <section class="box">
+        <h2 class="box-title">测试刷新页面vuex数据是否还是存在</h2>
+        <p class="mb-5">vuex:{{$store.state.token}}</p>
+        <button class="el-button el-button-primary" @click="reload">reload</button>
+      </section>
+
 
 
   </div>
@@ -39,7 +45,7 @@ export default {
   },
 
   created(){
-    console.log(this.$config);
+    console.log('--------------',this.$store.state.token);
   },
 
   methods: {
@@ -50,6 +56,11 @@ export default {
     // 上传图片测试
     changeUpload(){
 
+    },
+
+    // 重新加载页面
+    reload(){
+      window.location.reload();
     }
   }
 }

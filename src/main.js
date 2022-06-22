@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store/index.js'
 import config from "@/utils/config.js";
 import {get,post,postmult} from "@/static/js/request.js";
 import api from "@/utils/api.js";
@@ -42,6 +43,7 @@ Vue.prototype.$skip = (e,params)=>{
 
 var app = new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
 
