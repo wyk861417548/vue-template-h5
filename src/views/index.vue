@@ -45,7 +45,7 @@ export default {
   },
 
   created(){
-    console.log('--------------',this.$store.state.token);
+    console.log('--------------',this.$store.state,this.$store.state.token);
   },
 
   methods: {
