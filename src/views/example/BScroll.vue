@@ -3,7 +3,7 @@
   <div class="j-full-curbox">
     <!-- <p @click="$skip" data-url="/index2">我是父級-{{data.title}}--{{data.content}}-----{{data.age}}</p> -->
     <BScroll ref="scroll" @change="change" :vdata="dataList">
-      <div class="list"  v-for='(item,index) in dataList' :key='index' @click="$skip" data-url="/BScrollDetail">
+      <div class="box"  v-for='(item,index) in dataList' :key='index' @click="$skip" data-url="/BScrollDetail">
         {{item.name}} -- {{item.age}}
       </div>
     </BScroll>
@@ -57,11 +57,11 @@ export default {
     getData(){
       setTimeout(()=>{
         this.count++;
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 10; i++) {
           this.dataList.push({name:this.count+"---i---"+i,age:i})
         }
 
-        this.isScroll(this.dataList,50)
+        this.isScroll(this.dataList,30)
         
       },2000)
     },

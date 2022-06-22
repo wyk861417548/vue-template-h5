@@ -1,4 +1,4 @@
-import F from "@/static/js/config.js";
+import F from "@/utils/config.js";
 //正则对象配置
 export default {
 	Require : /.+/,

@@ -2,7 +2,7 @@
  * 请求拦截、相应拦截、错误统一处理
  */
 import axios from 'axios';
-import F from "@/static/js/config.js";
+import F from "@/utils/config.js";
 
 // 环境的切换
 axios.defaults.baseURL = process.env.VUE_APP_URL;

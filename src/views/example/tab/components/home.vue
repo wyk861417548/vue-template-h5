@@ -1,12 +1,16 @@
 <template>
-  <!-- j-full-curbox 当前元素占满全屏  j-flex-col flex垂直布局 -->
-  <div class='j-full-curbox j-flex-col'>
+  <div class="j-full-curbox">
 
-    <header></header>
+    <main>
+      <section class="box">
+        <h2 class="box-title">前往栗子</h2>
+        <button class="el-button el-button-primary" @click="$skip" data-url='/index'>栗子</button>
+      </section>
 
-    <main>HomePod</main>
+      
+    </main>
 
-    <footer></footer>
+
 
   </div>
 
@@ -18,7 +22,8 @@ export default {
     return {};
   },
 
-  created(){},
+  created(){
+  },
 
   methods: {
   }
