@@ -36,7 +36,6 @@ export default {
       audio.play();
       return;
     }
-
     let audio =  window.speechSynthesis;
     audio.cancel();
 
@@ -44,6 +43,20 @@ export default {
     msgAudio.text = text;
     //用声音阅读文字， 语音播放
     audio.speak(msgAudio);   
+  },
+
+  /**
+   * @param {*} num 需要转换金额
+   * @param {*} type 0：元  1：万元  2:亿元 以此类推
+   * @param {*} fixed 保留小数
+   * @returns 
+   */
+  unitConvert:function(num,type=1,fixed=2) {
+    var dividend = Math.pow(10000,type)
+    var curNum = num;
+    //转换金额位数
+    curNum = curNum / dividend 
+    return curNum.toFixed(fixed);
   },
   
   /**

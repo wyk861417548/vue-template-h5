@@ -15,7 +15,6 @@ export default{
 
   methods:{
     beforeunloadFn(){
-      alert(1)
       this.$store.commit('updateState');
     },
 
