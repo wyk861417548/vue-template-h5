@@ -1,10 +1,7 @@
 <template>
 	<div class="calendar" v-show="show">
-    <div class="calendar-box" >
-      <date  :type='type' v-if="calType.indexOf(type) == -1" @cancel="cancel" @confirm="confirm"></date>
-      <month :type='type' v-if="type=='month'" @cancel="cancel" @confirm="confirm"></month>
-      <year :type='type' v-if="type=='year'" @cancel="cancel" @confirm="confirm"></year>
-      <datenone :type='type' v-if="type=='datenone'" @cancel="cancel" @confirm="confirm"></datenone>
+    <div class="calendar-box">
+      <components :is='type' @cancel="cancel" @confirm="confirm"></components>
     </div>
   </div>
 </template>
@@ -13,16 +10,20 @@
   import date from "./date.vue";
   import month from "./month.vue";
   import year from "./year.vue";
-  import datenone from "./datenone.vue";
+  import datatime from "./datatime.vue";
 	export default {
+    props:{
+      type:{
+        type:String,
+        default:'year'
+      }
+    },
     components:{
       date,
       month,
       year,
-      datenone
+      datatime
     },
-    // 是否显示时间
-    props:['type'],
 		data() {
 			return {
 				// 是否显示日期组件
@@ -54,14 +55,6 @@
 
 			};
 		},
-
-    created(){
-      // console.log("created",this.type);
-    },
-
-    computed:{
-     
-    },
 		
 		methods:{
       // 取消
@@ -73,29 +66,51 @@
       confirm(date){
         this.show =false;
         this.$emit('confirm',date)
+      },
+
+      stop(){
+        var mo=function(e){e.preventDefault();};
+        document.body.style.overflow='hidden';
+        document.addEventListener("touchmove",mo,false);//禁止页面滑动
+      },
+      /***取消滑动限制***/
+      move(){
+        var mo=function(e){e.preventDefault();};
+        document.body.style.overflow='';//出现滚动条
+        document.removeEventListener("touchmove",mo,false);
       }
 		},
+
+    watch:{
+      show:{
+        handler(newVal){
+          if(newVal){
+            this.stop();
+          }else{
+            this.move();
+          }
+        }
+      }
+    }
 	}
 </script>
 
 <style scoped lang="less">
-  
   .calendar{
-    height: 100vh;
     position: fixed;
-    left: 0;
     top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.3);
-   
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-transform:translateZ(0);
     .calendar-box{
       width: 80%;
       margin: auto;
-      border-radius: .02rem;
+      border-radius: 2px;
       overflow: hidden;
     }
 	}

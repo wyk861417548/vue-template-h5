@@ -11,11 +11,11 @@
         <!-- 左右切换月份 -->
       <div class="calendar-title">
         <!-- <div class="arrow arrow-year iconfont icon-shuangjiantouxia" @click="prev('year')" style="transform:rotate(-135deg) scale(.5);"></div> -->
-        <div class="arrow-year iconfont icon-shuangjiantouxia mr-10" @click="prev('year')" ></div>
-        <div class="arrow" @click="prev" style="transform:rotate(-135deg) scale(.5);"></div>
+        <div class="arrow-year iconfont icon-shuangjiantouxia mr-20" @click="prev('year')" ></div>
+        <div class="arrow" @click="prev" style="transform:rotate(-135deg) scale(.7);"></div>
         <div class="date">{{currentYear}}年{{currentMonth + 1}}月</div>
-        <div class="arrow" @click="next" style="transform:rotate(45deg) scale(.5);"></div>
-        <div class="arrow-year iconfont icon-arrow-right-double ml-10" @click="next('year')"></div>
+        <div class="arrow" @click="next" style="transform:rotate(45deg) scale(.7);"></div>
+        <div class="arrow-year iconfont icon-arrow-right-double ml-20" @click="next('year')"></div>
       </div>
 
       <!-- 日期展示区域 -->
@@ -82,10 +82,6 @@
         time:"上午"
 			};
 		},
-
-    created(){
-      console.log("type",this.type);
-    },
 
     computed:{
       // 月份 中文显示
@@ -182,7 +178,7 @@
 </script>
 
 <style scoped lang="less">
-  .arrow{display: inline-block; width: .2rem;height: .2rem;border-top: 2px solid #000;border-right: 2px solid #000;transform:rotate(45deg) scale(.5);}  
+  .arrow{display: inline-block; width: 20px;height: 20px;border-top: 2px solid #000;border-right: 2px solid #000;transform:rotate(45deg) scale(.5);}  
   
   .calendar{
     height: 100vh;
@@ -199,16 +195,16 @@
     .calendar-box{
       width: 80%;
       margin: auto;
-      border-radius: .02rem;
+      border-radius: 2px;
       overflow: hidden;
       .calendar-header{
-        padding: .1rem .2rem;
+        padding: 10px 20px;
         background: #029688;
         .year{
           color: #48beb0;
         }
         .date{
-          font-size: .24rem;
+          font-size: 24px;
           color: #fff;
         }
       }
@@ -216,24 +212,25 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: .3rem;
-        padding:.2rem .1rem .1rem .1rem;
+        height: 40px;
+        padding:20px 10px 10px 10px;
         background-color: #fff;
-        font-size: .14rem;
+        font-size: 16px;
         .date{
           text-align: center;
           flex: 1;
         }
         .arrow-year{
           color: #029688;
-          font-size: .22rem;
+          font-size: 28px;
+          font-weight: 900;
           border-color: #029688;
         }
       }
 
       .calendar-content{
         background-color: #fff;
-        padding:0 .15rem;
+        padding:0 15px;
         .row{
           display: flex;
           flex-wrap: wrap;
@@ -241,8 +238,8 @@
           &>span{
             position: relative;
             width: calc(100%/7);
-            height: .5rem;
-            line-height: .5rem;
+            height: 50px;
+            line-height: 50px;
           }
           &.title{
             color: #a9abaa;
@@ -255,8 +252,8 @@
                 position: absolute;
                 left: 50%;
                 top: 50%;
-                width: .3rem;
-                height: .3rem;
+                width: 30px;
+                height: 30px;
                 opacity: .8;
                 border-radius: 50%;
                 transform: translate(-50%, -50%);
@@ -274,8 +271,8 @@
       .calendar-date{
         // display: flex;
         // justify-content: space-around;
-        height: 3rem;
-        padding: .2rem 0;
+        height: 300px;
+        padding: 20px 0;
         width: 100%;
         background-color: #fff;
         .calendar-date-column{
@@ -299,13 +296,13 @@
       .calendar-footer{
         display: flex;
         justify-content:space-between;
-        padding:0 .2rem;
+        padding:0 20px;
         background-color: #fff;
         color: #02958b;
         text-align: right;
-        line-height: .5rem;
+        line-height: 50px;
         p.action span{
-          margin-left: .2rem;
+          margin-left: 20px;
         }
       }
     }
