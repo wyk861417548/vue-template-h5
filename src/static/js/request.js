@@ -58,24 +58,30 @@ axios.interceptors.response.use(res => {
  * @param {Object} params [请求时携带的参数] 
  * @param {Object} opt 用于自定义处理配置
  */
-export function get(url, params,opt={}) {
-  return axios.get(url,{params}).then(res => {
-    return requestHandle(res,opt);
-  }).catch(()=>{})
+ export function get(url, params,opt={}) {
+  return new Promise((resolve) => {
+    axios.get(url,{params}).then(res => {
+      return requestHandle(res,opt,resolve);
+    }).catch(()=>{})
+  })
+  
 }
 
 export function post(url, params,opt={}) {
-  return axios.post(url, params).then(res => {
-    return requestHandle(res,opt);
-  }).catch(()=>{})
+  return new Promise((resolve) => {
+    axios.post(url,{params}).then(res => {
+      return requestHandle(res,opt,resolve);
+    }).catch(()=>{})
+  })
 }
 
-export function postmult(url, params, opt={}) {
-  return axios.post(url, params, {'Content-Type': 'multipart/form-data'}).then(res => {
-    return requestHandle(res,opt);
-  }).catch(()=>{})
+export function postmult(url, params, opt={}){
+  return new Promise((resolve) => {
+    axios.post(url,{params},{'Content-Type': 'multipart/form-data'}).then(res => {
+      return requestHandle(res,opt,resolve);
+    }).catch(()=>{})
+  })
 }
-
 
 // 统一请求动画计数
 function loading(boolean){
@@ -87,9 +93,9 @@ function loading(boolean){
 }
 
 // 请求返回处理
-function requestHandle(res,opt){
+function requestHandle(res,opt,resolve){
   if (res && res.data.code == 200 || opt.back) {
-    return res.data;
+    resolve(res.data)
   }
   res && handle(res.data)
 }
